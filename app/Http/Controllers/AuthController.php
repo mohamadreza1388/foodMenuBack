@@ -33,20 +33,20 @@ class AuthController extends Controller
         return $this->success('Login successfully', ['token' => $token]);
     }
 
-    public function register(Request $request)
-    {
-        $rules = ['name' => 'required|string', 'email' => 'required|string|email|unique:users', 'password' => 'required|string|min:8'];
-
-        $validator = Validator::make($request->all(), $rules);
-
-        if ($validator->fails()) {
-            return $this->fail('Validation error', $validator->errors());
-        }
-
-        $user = User::create(['name' => $request?->name, 'email' => $request?->email, 'password' => $request?->password]);
-
-        $token = $user->createToken('food_site')->plainTextToken;
-
-        return $this->success('Register successfully', ['token' => $token]);
-    }
+//    public function register(Request $request)
+//    {
+//        $rules = ['name' => 'required|string', 'email' => 'required|string|email|unique:users', 'password' => 'required|string|min:8'];
+//
+//        $validator = Validator::make($request->all(), $rules);
+//
+//        if ($validator->fails()) {
+//            return $this->fail('Validation error', $validator->errors());
+//        }
+//
+//        $user = User::create(['name' => $request?->name, 'email' => $request?->email, 'password' => $request?->password]);
+//
+//        $token = $user->createToken('food_site')->plainTextToken;
+//
+//        return $this->success('Register successfully', ['token' => $token]);
+//    }
 }
