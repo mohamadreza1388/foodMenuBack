@@ -4,7 +4,7 @@ namespace App;
 
 trait ResponseTrait
 {
-    public function fail($message = null, $errors = null, $code = 404)
+    public function fail($message = null, $errors = [], $code = 404)
     {
         return response()->json([
             'success' => false,
